@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvSettings"
+        style="@style/textTitleStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_5sdp"
+        android:text="@string/settings"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:paddingBottom="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvSettings">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_preference"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvPreference"
+                    style="@style/textSubHeadingStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_preference"
+                    android:textColor="@color/green"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvNewsCategory"
+                    style="@style/textSettingItemStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/news_category"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPreference" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height=".5sp"
+                    android:background="@color/grey"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNewsCategory" />
+
+                <TextView
+                    android:id="@+id/tvLanguage"
+                    style="@style/textSettingItemStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/language"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNewsCategory" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height=".5sp"
+                    android:background="@color/grey"
+                    app:layout_constraintTop_toBottomOf="@+id/tvLanguage" />
+
+                <TextView
+                    android:id="@+id/tvCountry"
+                    style="@style/textSettingItemStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/country"
+                    app:layout_constraintTop_toBottomOf="@+id/tvLanguage" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/cl_preference">
+
+                <TextView
+                    android:id="@+id/tvFeedback"
+                    style="@style/textSubHeadingStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/feedback"
+                    android:textColor="@color/green"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvBugSpot"
+                    style="@style/textSettingItemStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/i_spotted_a_bug"
+                    app:layout_constraintTop_toBottomOf="@+id/tvFeedback" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height=".5sp"
+                    android:background="@color/grey"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBugSpot" />
+
+                <TextView
+                    android:id="@+id/tvSuggestion"
+                    style="@style/textSettingItemStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/i_have_a_suggestion"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBugSpot" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_more"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/cl_feedback">
+
+                <TextView
+                    android:id="@+id/tvMore"
+                    style="@style/textSubHeadingStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="More Information"
+                    android:textColor="@color/green"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvVersion"
+                    style="@style/textSettingItemStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hnews_v1_0_0"
+                    app:layout_constraintTop_toBottomOf="@+id/tvMore" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height=".5sp"
+                    android:background="@color/grey"
+                    app:layout_constraintTop_toBottomOf="@+id/tvVersion" />
+
+                <TextView
+                    android:id="@+id/tvLibraries"
+                    style="@style/textSettingItemStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/supporting_libraries"
+                    app:layout_constraintTop_toBottomOf="@+id/tvVersion" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height=".5sp"
+                    android:background="@color/grey"
+                    app:layout_constraintTop_toBottomOf="@+id/tvLibraries" />
+
+                <TextView
+                    android:id="@+id/tvDevelopedBy"
+                    style="@style/textSettingItemStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/developer_contacts"
+                    app:layout_constraintTop_toBottomOf="@+id/tvLibraries" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height=".5sp"
+                    android:background="@color/grey"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDevelopedBy" />
+
+                <TextView
+                    android:id="@+id/tvPrivacyPolicy"
+                    style="@style/textSettingItemStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/privacy_policy"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDevelopedBy" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/news_nav_graph"
+    app:startDestination="@id/breakingNewsFrag">
+
+    <fragment
+        android:id="@+id/breakingNewsFrag"
+        android:name="com.phonecheck.hnews.ui.fragments.BreakingNewsFragment"
+        android:label="BreakingNewsFragment"
+        tools:layout="@layout/fragment_breaking_news">
+        <action
+            android:id="@+id/action_breakingNewsFragment_to_articleFragment"
+            app:destination="@id/articleFrag"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedNewsFrag"
+        android:name="com.phonecheck.hnews.ui.fragments.SavedNewsFragment"
+        android:label="SavedNews">
+        <action
+            android:id="@+id/action_savedNewsFragment_to_articleFragment"
+            app:destination="@id/articleFrag"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+
+            />
+
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFrag"
+        android:name="com.phonecheck.hnews.ui.fragments.SettingsNewsFragment"
+        android:label="SearchNews">
+        <action
+            android:id="@+id/action_searchNewsFragment_to_articleFragment"
+            app:destination="@id/preferenceFrag"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/articleFrag"
+        android:name="com.phonecheck.hnews.ui.fragments.ArticleFragment"
+        android:label="Article">
+        <argument
+            android:name="article"
+            app:argType="com.phonecheck.hnews.ui.models.Article" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/preferenceFrag"
+        android:name="com.phonecheck.hnews.ui.fragments.PreferenceItemSelectionFragment"
+        android:label="Preference"
+        tools:layout="@layout/fragment_perference_item_selection" >
+        <argument
+            android:name="prefType"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+</navigation>
