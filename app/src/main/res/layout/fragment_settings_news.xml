@@ -40,7 +40,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/app_preference"
-                    android:textColor="@color/green"
+                    android:textColor="@color/red"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -93,7 +93,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/feedback"
-                    android:textColor="@color/green"
+                    android:textColor="@color/red"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -131,8 +131,8 @@
                     style="@style/textSubHeadingStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="More Information"
-                    android:textColor="@color/green"
+                    android:text="@string/more_information"
+                    android:textColor="@color/red"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView

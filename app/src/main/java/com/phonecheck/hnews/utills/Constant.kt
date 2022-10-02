@@ -1,5 +1,7 @@
 package com.phonecheck.hnews.utills
 
+import com.phonecheck.hnews.R
+
 
 object Constant {
     const val URL_BASE = "https://newsapi.org"
@@ -10,6 +12,8 @@ object Constant {
     const val SEARCHING_DELAY = 2000L
     const val QUERY_ITEM_LENGTH = 20
     const val BUNDLE_TITLE = "article"
+    const val EMAIL_ADDRESS = "hamza.ali6307@gmail.com"
+    const val EMAIL_SUBJECT_BUG = ""
     var isScrolling = false
     var isPageLoading = false
     var isLastPage = false
