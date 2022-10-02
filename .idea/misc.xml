@@ -28,7 +28,7 @@
         <entry key="app/src/main/res/layout/activity_news.xml" value="0.12447916666666667" />
         <entry key="app/src/main/res/layout/fragment_article.xml" value="0.26979166666666665" />
         <entry key="app/src/main/res/layout/fragment_breaking_news.xml" value="0.16614583333333333" />
-        <entry key="app/src/main/res/layout/fragment_perference_item_selection.xml" value="0.13177083333333334" />
+        <entry key="app/src/main/res/layout/fragment_perference_item_selection.xml" value="0.2" />
         <entry key="app/src/main/res/layout/fragment_saved_news.xml" value="0.22552083333333334" />
         <entry key="app/src/main/res/layout/fragment_search_news.xml" value="0.13177083333333334" />
         <entry key="app/src/main/res/layout/fragment_settings_news.xml" value="0.25" />

@@ -3,6 +3,8 @@ package com.phonecheck.hnews.ui.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.phonecheck.hnews.R
 import com.phonecheck.hnews.ui.adapters.PreferencesAdapter
@@ -11,7 +13,6 @@ import com.phonecheck.hnews.utills.Constant.BUNDLE_TITLE
 import com.phonecheck.hnews.utills.DataPreference
 import com.phonecheck.hnews.utills.showSnackBar
 import kotlinx.android.synthetic.main.fragment_perference_item_selection.*
-
 
 class PreferenceItemSelectionFragment : Fragment(R.layout.fragment_perference_item_selection) {
     private lateinit var prefAdapter: PreferencesAdapter
@@ -22,6 +23,9 @@ class PreferenceItemSelectionFragment : Fragment(R.layout.fragment_perference_it
 
         initRecyclerView()
         initIntent()
+        iv_back.setOnClickListener {
+            findNavController().navigate(R.id.settingsFrag)
+        }
     }
 
     private fun initRecyclerView() {
@@ -29,6 +33,7 @@ class PreferenceItemSelectionFragment : Fragment(R.layout.fragment_perference_it
         prefAdapter = PreferencesAdapter {
             showSnackBar(rvPref, it.prefName)
             savePreference(it.details!!)
+            findNavController().navigate(R.id.breakingNewsFrag)
 
         }
         rvPref.apply {
@@ -48,7 +53,6 @@ class PreferenceItemSelectionFragment : Fragment(R.layout.fragment_perference_it
 
             getString(R.string.country) -> {
                 prefSession.setCountry(prefName)
-
             }
         }
     }
@@ -58,23 +62,23 @@ class PreferenceItemSelectionFragment : Fragment(R.layout.fragment_perference_it
         when (arguments?.getString(BUNDLE_TITLE)) {
 
             getString(R.string.category) -> {
-                for (item in resources.getStringArray(R.array.categories)) {
+                resources.getStringArray(R.array.categories).forEach { item ->
                     arrayList.add(Preference(item, item))
                 }
             }
             getString(R.string.country) -> {
-                for (i in 0 until resources.getStringArray(R.array.country).size) {
+                (0 until resources.getStringArray(R.array.country).size).forEach { i ->
                     arrayList.add(Preference(resources.getStringArray(R.array.country)[i],
                         resources.getStringArray(R.array.country_short)[i]))
                 }
             }
             getString(R.string.sorted_by) -> { // not implemented yet
-                for (item in resources.getStringArray(R.array.categories)) {
+                resources.getStringArray(R.array.categories).forEach { item ->
                     arrayList.add(Preference(item, ""))
                 }
             }
             getString(R.string.language) -> {
-                for (i in 0 until resources.getStringArray(R.array.language).size) {
+                (0 until resources.getStringArray(R.array.language).size).forEach { i ->
                     arrayList.add(Preference(resources.getStringArray(R.array.language)[i],
                         resources.getStringArray(R.array.language_short)[i]))
                 }

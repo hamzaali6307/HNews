@@ -21,7 +21,6 @@ class NewsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         viewModel = ViewModelProvider(this,
             ViewModelFactory(application,
                 NewsRepository(ArticleDataBase.invoke(this))))[NewsViewModel::class.java]
@@ -30,7 +29,6 @@ class NewsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initViews()
-
     }
 
     private fun initViews() {

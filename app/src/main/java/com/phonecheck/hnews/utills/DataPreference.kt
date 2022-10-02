@@ -16,7 +16,7 @@ class DataPreference(context: Context) {
     }
 
     fun getCategory() : String {
-        return sharedPreferences.getString(newsCategory, "")!!
+        return sharedPreferences.getString(newsCategory, "general")!!
     }
 
     fun setLanguage(lang: String) {

@@ -2,6 +2,7 @@ package com.phonecheck.hnews.ui.fragments
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
@@ -34,7 +35,7 @@ import kotlinx.coroutines.launch
 
 class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
     private lateinit var newsAdapter: NewsAdapter
-    private var newsList: ArrayList<Article> = arrayListOf()
+    private var newsList: ArrayList<Article>? = null
     private var job: Job? = null
     private lateinit var viewModel: NewsViewModel
     private lateinit var prefSession: DataPreference
@@ -75,12 +76,12 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
 
         initViews()
 
-        viewsListner()
+        viewsListener()
 
         loadDataFromNetwork()
     }
 
-    private fun viewsListner() {
+    private fun viewsListener() {
         et_searching.doAfterTextChanged { editable ->
             newsList = arrayListOf()
             job?.cancel()
@@ -110,20 +111,21 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
                             viewLoadingData(show = true)
                             response.data?.let { newsResponse ->
                                 if (newsResponse.totalResults != 0) {
-                                    for (item in newsResponse.articles) {
-                                        newsList.add(item)
+                                    newsResponse.articles.forEach { item ->
+                                        newsList?.add(item)
                                     }
                                 }
                                 newsAdapter.differ.submitList(newsList)
-                                isLastPage =
-                                    viewModel.pageNumber == newsResponse.totalResults / QUERY_ITEM_LENGTH + 2
+                                isLastPage = viewModel.pageNumber == newsResponse.totalResults / QUERY_ITEM_LENGTH + 2
                                 if (isLastPage) {
                                     rvBreakingNews.setPadding(0, 0, 0, 0)
                                 }
                             }
+                            Log.d("myData",newsList.toString())
+
                         }
                         is Resource.Error -> {
-                            if (newsList.size == 0) {
+                            if (newsList?.size == 0) {
                                 viewLoadingData(false)
                                 response.message?.let { message ->
                                     showSnackBar(clMainView, message)
@@ -141,8 +143,10 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
     }
 
     private fun initViews() {
+        newsList = ArrayList()
         viewModel = (activity as NewsActivity).viewModel
         prefSession = DataPreference(requireActivity())
+        viewModel.pageNumber = 1  // on reload fragment 1st page load
     }
 
     private fun viewLoadingData(show: Boolean) {
